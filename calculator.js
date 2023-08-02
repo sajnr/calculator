@@ -26,7 +26,7 @@ function sum(a, b) {
     return a / b;
   }
   
-  Function ongotpointercapture() {
+  function selectedOperator() {
     if (selectedOperator. includes ("+")) {
         return Math.round(sum(PrevNum, parseFloat(numStr)) * 1000) / 1000;
     }else if (selectedOperator.includes ("−")) {
@@ -81,3 +81,39 @@ function sum(a, b) {
     topScreenText.innerText = `${prevNum} ${selectedOperator}`;
     bottomScreenText.innerText = prevNum;
   }
+  // CASE FOUR: if operate with undefined operand b
+  else if (numStr === "") {
+    selectedOperator = char;
+    prevNum = 0;
+    topScreenText.innerText = `${prevNum} ${selectedOperator}`;
+    bottomScreenText.innerText = prevNum;
+  }
+}
+
+if (char === "=") {
+    if (prevNum !== null && numStr !== "") {
+      result = operate();
+      topScreenText.innerText = `${prevNum} ${selectedOperator} ${numStr} =`;
+      prevNum = null;
+      numStr = result;
+    }
+    if (prevNum === null && numStr === "") {
+      result = "Error: specify numbers to calculate";
+    }
+    bottomScreenText.innerText = result;
+  }
+}
+
+function onclearbuttonclick() {
+    numStr = "";
+    prevNum = null;
+    selectedOperator = null;
+    topScreenText.innerText = "";
+    bottomScreenText.innerText = "";
+}
+
+// EVENT LISTENERS
+functionBtns.forEach((functionBtn) => {
+    functionBtn.addEventListener("click", onCalculatorfunctionBtnClick);
+  });
+  clearBtn.addEventListener("click", onClearButtonClick);
