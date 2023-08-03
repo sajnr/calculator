@@ -8,6 +8,7 @@ const functionBtns = document.querySelectorAll(
   ".calculator__btns > .calculator__btn"
 );
 const clearBtn = document.getElementById("clear-btn");
+const deleteBtn = document.querySelector(".calculator__btn--delete");
 const topScreenText = document.getElementById("calculator-screen-top");
 const bottomScreenText = document.getElementById("calculator-screen-bottom");
 
@@ -112,12 +113,13 @@ function onClearButtonClick() {
 }
 
 function ondDeleteButtonClick() {
-    numStr = "";
-    prevNum = null;
-    selectedOperator = null;
-    topScreenText.innerText = "";
-    bottomScreenText.innerText = "";
+  if (numStr.length > 0){
+    numStr = numStr.slice(0 , -1);
+    bottomScreenText.innerText = numStr;
   }
+}
+
+deleteBtn.addEventListener("click", ondDeleteButtonClick);
 // EVENT LISTENERS
 functionBtns.forEach((functionBtn) => {
   functionBtn.addEventListener("click", onCalculatorfunctionBtnClick);
