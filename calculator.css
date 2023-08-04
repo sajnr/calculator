@@ -70,15 +70,34 @@ body {
     width: 172px;
     padding: 8px;
     color: blue;
+    background-color: rgb(235, 165, 165);
   }
  
 .calculator__btn--delete {
     width: 172px;
     padding: 8px;
     color: black;
+    background-color: red;
 }
 
   .calculator__btns {
     display: grid;
     grid-template-columns: repeat(4, auto);
   }
+
+  .calculator__btn:nth-child(4) {
+    background: rgb(228, 103, 103);
+  }
+
+  .calculator__btn:nth-child(8) {
+    background: rgb(228, 103, 103);
+  }
+
+  .calculator__btn:nth-child(12) {
+    background: rgb(228, 103, 103);
+  }
+
+  .calculator__btn:nth-child(16) {
+    background: rgb(228, 103, 103);
+  }
+
